@@ -49,12 +49,12 @@ public class CreateIndex {
 	}
 	
 	/**
-	 * @param message
+	 * 创建索引mapping
+	 *
+	 * @param properties
 	 * @return
 	 */
-	public static Map<String, Object> createMapping(Map<String, Object> message) {
-		Map<String, Object> properties = new HashMap<>();
-		properties.put("message", message);
+	public static Map<String, Object> createMapping(Map<String, Object> properties) {
 		Map<String, Object> mapping = new HashMap<>();
 		mapping.put("properties", properties);
 		return mapping;

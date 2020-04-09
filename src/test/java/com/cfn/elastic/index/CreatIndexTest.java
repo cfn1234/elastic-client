@@ -25,7 +25,10 @@ public class CreatIndexTest {
 		CreateIndexRequest request = CreateIndex.creatIndex("test");
 		Map<String, Object> mapping = new HashMap<>();
 		mapping.put("type", "text");
-		request.mapping(CreateIndex.createMapping(mapping));
+		Map<String, Object> properties = new HashMap<>();
+		properties.put("message", mapping);
+		properties.put("cc", mapping);
+		request.mapping(CreateIndex.createMapping(properties));
 		ActionListener<CreateIndexResponse> listener =
 				new ActionListener<CreateIndexResponse>() {
 					@Override
