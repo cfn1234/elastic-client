@@ -1,8 +1,10 @@
 package com.cfn.elastic.index;
 
 import lombok.extern.slf4j.Slf4j;
+import org.elasticsearch.action.admin.indices.alias.Alias;
 import org.elasticsearch.client.indices.CreateIndexRequest;
 import org.elasticsearch.common.settings.Settings;
+import org.elasticsearch.index.query.TermQueryBuilder;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -58,5 +60,16 @@ public class CreateIndex {
 		Map<String, Object> mapping = new HashMap<>();
 		mapping.put("properties", properties);
 		return mapping;
+	}
+	
+	/**
+	 * 创建别名
+	 *
+	 * @param request      请求
+	 * @param queryBuilder 过滤的字段
+	 * @return
+	 */
+	public static CreateIndexRequest createAliases(CreateIndexRequest request, TermQueryBuilder queryBuilder) {
+		return request.alias(new Alias("twitter_alias").filter(queryBuilder));
 	}
 }

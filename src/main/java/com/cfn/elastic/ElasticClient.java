@@ -17,25 +17,15 @@ import java.io.IOException;
 public class ElasticClient {
 	
 	/**
-	 * 自己创建一个类的实例化
-	 */
-	private final static ElasticClient elasticClient = new ElasticClient();
-	/**
 	 * 连接属性
 	 */
-	private RestHighLevelClient client;
+	private static RestHighLevelClient client;
 	
 	/**
 	 * 私有构造函数
 	 */
 	private ElasticClient() {
 	}
-	
-	//创建一个get方法，返回一个实例
-	public static ElasticClient getInstance() {
-		return elasticClient;
-	}
-	
 	
 	/**
 	 * 连接es
@@ -44,7 +34,7 @@ public class ElasticClient {
 	 * @return
 	 */
 	
-	public synchronized RestHighLevelClient getClient(HttpHost... host) {
+	public static synchronized RestHighLevelClient getClient(HttpHost... host) {
 		if (null == client) {
 			client = new RestHighLevelClient(RestClient.builder(host));
 		}
@@ -54,7 +44,7 @@ public class ElasticClient {
 	/**
 	 * 关闭es连接
 	 */
-	public void closeClient() {
+	public static void closeClient() {
 		try {
 			if (null == client) {
 				log.warn("is not client");

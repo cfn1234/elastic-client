@@ -21,7 +21,7 @@ import java.util.Map;
 public class CreatIndexTest {
 	
 	public static void main(String[] args) {
-		RestHighLevelClient client = ElasticClient.getInstance().getClient(new HttpHost("192.168.6.150", 9200));
+		RestHighLevelClient client = ElasticClient.getClient(new HttpHost("192.168.6.150", 9200));
 		CreateIndexRequest request = CreateIndex.creatIndex("test");
 		Map<String, Object> mapping = new HashMap<>();
 		mapping.put("type", "text");
@@ -34,7 +34,6 @@ public class CreatIndexTest {
 					@Override
 					public void onResponse(CreateIndexResponse createIndexResponse) {
 					}
-					
 					@Override
 					public void onFailure(Exception e) {
 					}

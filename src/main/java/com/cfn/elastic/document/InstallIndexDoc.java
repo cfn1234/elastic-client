@@ -1,34 +1,39 @@
-package com.cfn.elastic.index.document;
+package com.cfn.elastic.document;
 
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.common.xcontent.XContentBuilder;
-import org.elasticsearch.common.xcontent.XContentType;
 
 import java.util.Map;
 
 /**
- * com.cfn.elastic.index.document
- * 创建文档
+ * com.cfn.elastic.index
+ * 新增文档
  *
  * @author caofengnian
  * @Date 2020-04-09
  */
-public class CreateIndexDoc {
+public class InstallIndexDoc {
 	
+	/**
+	 * 私有构造函数
+	 */
+	private InstallIndexDoc() {
+	}
+	
+	private static IndexRequest install(String indexName, String id, Object object) {
+		return new IndexRequest(indexName).id(id).source(object);
+	}
 	
 	/**
 	 * 新增文档
 	 *
-	 * @param indexName  索引名称
+	 * @param indexName 索引名称
 	 * @param id
-	 * @param jsonString json格式文档
+	 * @param json      json格式文档
 	 * @return
 	 */
-	public static IndexRequest installIndex(String indexName, String id, String jsonString) {
-		IndexRequest request = new IndexRequest(indexName);
-		request.id(id);
-		request.source(jsonString, XContentType.JSON);
-		return request;
+	public static IndexRequest installIndex(String indexName, String id, String json) {
+		return install(indexName, id, json);
 	}
 	
 	/**
@@ -40,9 +45,7 @@ public class CreateIndexDoc {
 	 * @return
 	 */
 	public static IndexRequest installIndex(String indexName, String id, Map<String, Object> map) {
-		IndexRequest indexRequest = new IndexRequest(indexName)
-				.id("id").source(map);
-		return indexRequest;
+		return install(indexName, id, map);
 	}
 	
 	/**
@@ -54,9 +57,7 @@ public class CreateIndexDoc {
 	 * @return
 	 */
 	public static IndexRequest installIndex(String indexName, String id, XContentBuilder builder) {
-		IndexRequest indexRequest = new IndexRequest(indexName)
-				.id(id).source(builder);
-		return indexRequest;
+		return install(indexName, id, builder);
 	}
 	
 }
