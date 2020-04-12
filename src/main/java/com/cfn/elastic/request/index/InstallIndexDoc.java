@@ -1,4 +1,4 @@
-package com.cfn.elastic.document;
+package com.cfn.elastic.request.index;
 
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.common.xcontent.XContentBuilder;
@@ -10,7 +10,7 @@ import java.util.Map;
  * 新增文档
  *
  * @author caofengnian
- * @Date 2020-04-09
+ * @date 2020-04-09
  */
 public class InstallIndexDoc {
 	
@@ -28,9 +28,9 @@ public class InstallIndexDoc {
 	 * 新增文档
 	 *
 	 * @param indexName 索引名称
-	 * @param id
+	 * @param id        id
 	 * @param json      json格式文档
-	 * @return
+	 * @return IndexRequest
 	 */
 	public static IndexRequest installIndex(String indexName, String id, String json) {
 		return install(indexName, id, json);
@@ -42,7 +42,7 @@ public class InstallIndexDoc {
 	 * @param indexName 索引名称
 	 * @param id
 	 * @param map       json格式文档
-	 * @return
+	 * @return IndexRequest
 	 */
 	public static IndexRequest installIndex(String indexName, String id, Map<String, Object> map) {
 		return install(indexName, id, map);
@@ -54,7 +54,7 @@ public class InstallIndexDoc {
 	 * @param indexName 索引名称
 	 * @param id
 	 * @param builder   json格式文档
-	 * @return
+	 * @return IndexRequest
 	 */
 	public static IndexRequest installIndex(String indexName, String id, XContentBuilder builder) {
 		return install(indexName, id, builder);

@@ -2,6 +2,7 @@ package com.cfn.elastic.index;
 
 
 import com.cfn.elastic.ElasticClient;
+import com.cfn.elastic.request.index.CreateIndex;
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.ActionListener;
 import org.elasticsearch.client.RequestOptions;
@@ -13,7 +14,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * com.cfn.elastic.index
  *
  * @author caofengnian
  * @Date 2020-04-09

@@ -1,4 +1,4 @@
-package com.cfn.elastic.index;
+package com.cfn.elastic.request.index;
 
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.action.admin.indices.alias.Alias;
