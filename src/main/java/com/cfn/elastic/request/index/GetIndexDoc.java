@@ -11,9 +11,10 @@ import java.io.IOException;
 
 /**
  * com.cfn.elastic.request.index
- * 根据ID获取文档
+ * 根据获取文档
  *
  * @author caofengnian
+ * @see必须添加id查询
  * @date 2020-04-12
  */
 @Slf4j
