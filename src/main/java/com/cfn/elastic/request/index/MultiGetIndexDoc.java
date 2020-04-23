@@ -17,7 +17,7 @@ public class MultiGetIndexDoc {
 	
 	private MultiGetIndexDoc() {
 	}
-	
+	1
 	public MultiGetRequest multiGetIndex(List<IndexDto> list) {
 		MultiGetRequest request = new MultiGetRequest();
 		list.stream().forEach(x -> {
