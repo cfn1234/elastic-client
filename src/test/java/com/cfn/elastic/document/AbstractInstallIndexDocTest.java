@@ -9,7 +9,10 @@ package com.cfn.elastic.document;
 class AbstractInstallIndexDocTest {
 
 
-
+	/**
+	 * 尼玛
+	 * @param args
+	 */
 	public static void main(String[] args) {
 	}
 }
