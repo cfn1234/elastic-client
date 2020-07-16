@@ -7,7 +7,9 @@ package com.cfn.elastic.document;
  * @Date 2020-04-10
  */
 class AbstractInstallIndexDocTest {
-	
+
+
+
 	public static void main(String[] args) {
 	}
 }
